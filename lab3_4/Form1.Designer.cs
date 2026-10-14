@@ -1,6 +1,6 @@
 ﻿namespace lab3_4
 {
-    partial class Form1
+    partial class window
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(window));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -36,17 +36,22 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 25);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(800, 450);
+            this.webBrowser1.Size = new System.Drawing.Size(800, 425);
             this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // toolStrip1
             // 
@@ -56,7 +61,10 @@
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripTextBox1,
-            this.toolStripButton4});
+            this.toolStripButton4,
+            this.toolStripTextBox2,
+            this.toolStripButton5,
+            this.toolStripComboBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -71,7 +79,7 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Text = "Back";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
@@ -81,8 +89,8 @@
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton2.Text = "Home";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
             // 
@@ -91,7 +99,7 @@
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Text = "Forward";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripTextBox1
@@ -100,8 +108,8 @@
             this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBox1.Text = "search here";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(300, 25);
+            this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // toolStripButton4
@@ -111,19 +119,46 @@
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Text = "Go";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
-            // Form1
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(120, 25);
+            this.toolStripTextBox2.ToolTipText = "New keyword to block";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.ForeColor = System.Drawing.SystemColors.Window;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(49, 22);
+            this.toolStripButton5.Text = "Add";
+            this.toolStripButton5.ToolTipText = "Add keyword to block";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(140, 25);
+            this.toolStripComboBox1.ToolTipText = "Blocked keywords";
+            // 
+            // window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.webBrowser1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "window";
+            this.Text = "Browser Yes";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -140,6 +175,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
 
